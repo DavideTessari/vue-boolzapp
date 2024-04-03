@@ -25,9 +25,9 @@
                     <div class="sidebar_header border-end d-flex justify-content-between">
                         <div class="avatar d-flex align-items-center">
                             <div class="avatar_face">
-                                <img class="rounded-circle p-1" width="50" src="./assets/img/avatar_io.jpg" alt="">
+                                <img class="rounded-circle p-1" width="50" src="./starter-pack/img/avatar_io.jpg" alt="">
                             </div>
-                            <div class="avatar_name font_name">Sofia</div>
+                            <div class="avatar_name font_name">Davide Tessari</div>
                         </div>
                         <div class="sidebar_icons d-flex align-items-center gap-2 px-3">
                             <a href="#"><i class="fa-solid fa-circle-notch text-muted"></i></a>
@@ -58,7 +58,7 @@
                         <div class="contacts d-flex align-items-center" v-for="(contact, i) in contacts" :key="i">
                             <div class="avatar_face">
                                 <!-- Utilizza la proprietà avatar del contatto -->
-                                <img class="rounded-circle px-1 py-1" width="50" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="">
+                                <img class="rounded-circle px-1 py-1" width="50" :src=" './starter-pack/img/avatar' + contact.avatar + '.jpg'" alt="">
                             </div>
                             <div class="avatar_access">
                                 <div class="avatar_name font_name">{{ contact.name }}</div>

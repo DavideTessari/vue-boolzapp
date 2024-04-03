@@ -1,4 +1,3 @@
-/* CSS */
 * {
     padding: 0;
     margin: 0;
@@ -86,7 +85,7 @@ body {
 }
 
 .chat_main {
-    background-image: url('/assets/img/mine.jpg');
+    background-image: url(/starter-pack/img/mine.jpg);
     height: 100%;
     overflow-y: scroll;
 }
