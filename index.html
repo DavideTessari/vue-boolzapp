@@ -88,13 +88,14 @@
                             <a href="#"><i class="fa-solid fa-ellipsis-vertical text-muted"></i></i></a>
                         </div>
                     </div>
-                    <div class="chat_main">
-                        <div v-for="(message, index) in contacts[currentContactIndex].messages" :key="index" :class="message.status === 'sent' ? 'message_sent' : 'message_received'">
-                            <div :class="message.status === 'sent' ? 'sent' : 'received'">
-                                <div class="rounded-3 px-2 py-3 mt-4 my-2 me-3 align-self-end">{{ message.message }}</div>
+                    <div class="chat_main p-3">
+                        <div v-for="(message, index) in contacts[currentContactIndex].messages" :key="index">
+                            <div class="d-flex" :class="{ 'justify-content-end': message.status === 'sent', 'justify-content-start': message.status === 'received' }">
+                                <div class="message-content rounded-2 py-2 px-3 m-2" :style="{ 'background-color': message.status === 'sent' ? 'var(--chat_sent)' : 'white' }">{{ message.message }}</div>
                             </div>
                         </div>
-                    </div>
+                    </div>                                                                
+                    
                     <div class="chat_input d-flex justify-content-between align-items-center">
                         <a class="text-muted" href="#"><i class="fa-regular fa-face-smile px-4"></i></a>
                         <input class="input_message my-2 border-0" type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="addMessage">
