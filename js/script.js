@@ -84,8 +84,14 @@ createApp({
                 },
             ],
             currentContactIndex: 0,
-            newMessageText: ''
+            newMessageText: '',
+            searchQuery: ''
         };
+    },
+    computed: {
+        filteredContacts() {
+            return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchQuery.toLowerCase()));
+        }
     },
     methods: {
         addMessage() {
@@ -107,6 +113,9 @@ createApp({
             }, 1000);
             // Resetta l'input del messaggio
             this.newMessageText = '';
+        },
+        setCurrentContact(index) {
+            this.currentContactIndex = index;
         }
     }
 }).mount('#app');
