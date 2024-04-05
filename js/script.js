@@ -116,6 +116,12 @@ createApp({
         },
         setCurrentContact(index) {
             this.currentContactIndex = index;
+        },
+        toggleDropdown(message) {
+            message.showDropdown = !message.showDropdown;
+        },
+        deleteMessage(index) {
+            this.contacts[this.currentContactIndex].messages.splice(index, 1);
         }
-    }
+    },
 }).mount('#app');

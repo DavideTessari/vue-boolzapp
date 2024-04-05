@@ -46,7 +46,6 @@ body {
 
 .sidebar_notifications {
     background-color: var(--notifications--);
-    height: 70px;
 }
 
 .bell_icon {
@@ -82,7 +81,7 @@ body {
 
 .chat_header {
     background-color: var(--primary--);
-    height: 65px;
+    height: 70px;
 }
 
 .font_min {
