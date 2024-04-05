@@ -51,8 +51,7 @@
                         </div>
                     </div>
                     <div class="sidebar_contacts p-2">
-                        <div class="contacts row g-1 align-items-center" v-for="(contact, index) in filteredContacts"
-                            :key="index" @click="setCurrentContact(index)">
+                        <div class="contacts row g-1 align-items-center" v-for="(contact, index) in filteredContacts" :key="index" @click="setCurrentContact(index)">
                             <div class="col-auto">
                                 <div class="avatar_face">
                                     <img class="rounded-circle p-1" width="50" :src="'./starter-pack/img/avatar' + contact.avatar + '.jpg'" alt="">
@@ -61,15 +60,16 @@
                             <div class="col">
                                 <div class="avatar_access">
                                     <div class="avatar_name font_name">{{ contact.name }}</div>
-                                    <div class="last_access text-secondary font_min">Ultimo messaggio inviato</div>
+                                    <div class="last_access text-secondary font_min">{{ contact.messages[contact.messages.length - 1].date }}</div>
                                 </div>
                             </div>
                             <div class="col-auto">
                                 <div class="time_access">
-                                    <span class="font_min">12:00</span>
+                                    <span class="font_min">{{ contact.messages[contact.messages.length - 1].status }}</span>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
 
