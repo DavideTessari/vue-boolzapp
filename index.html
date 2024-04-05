@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/style.css">
-    <title>Boolzapp</title>
 </head>
 
-<body> 
+<body>
     <div class="bg-head-app"></div>
 
     <div id="app">
@@ -32,12 +32,11 @@
                         <div class="sidebar_icons d-flex align-items-center gap-2 px-3">
                             <a href="#"><i class="fa-solid fa-circle-notch text-muted"></i></a>
                             <a href="#"><i class="fa-solid fa-message text-muted"></i></a>
-                            <a href="#"><i class="fa-solid fa-ellipsis-vertical text-muted"></i></i></a>
+                            <a href="#"><i class="fa-solid fa-ellipsis-vertical text-muted"></i></a>
                         </div>
                     </div>
                     <div class="sidebar_notifications d-flex gap-3 p-2">
-                        <div
-                            class="bell_icon rounded-circle bg-white d-flex justify-content-center align-items-center p-2">
+                        <div class="bell_icon rounded-circle bg-white d-flex justify-content-center align-items-center p-2">
                             <i class="fa-solid fa-bell-slash text-info"></i>
                         </div>
                         <div class="notifications_stats d-flex flex-column justify-content-center">
@@ -50,22 +49,28 @@
                     <div class="sidebar_search">
                         <div class="bg-white my-2 mx-2">
                             <i class="fa-solid fa-magnifying-glass text-muted px-2"></i>
-                            <input class="border-0 font_min px-2" type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchQuery">
+                            <input class="border-0 font_min px-2" type="text"
+                                placeholder="Cerca o inizia una nuova chat" v-model="searchQuery">
                         </div>
                     </div>
-                    <div class="sidebar_contacts">
-                        <!-- Vue.js gestirà la creazione dinamica dei contatti -->
-                        <div class="contacts d-flex align-items-center" v-for="(contact, index) in filteredContacts" :key="index" @click="setCurrentContact(index)">
-                            <div class="avatar_face">
-                                <!-- Utilizza la proprietà avatar del contatto -->
-                                <img class="rounded-circle px-1 py-1" width="50" :src="'./starter-pack/img/avatar' + contact.avatar + '.jpg'" alt="">
+                    <div class="sidebar_contacts p-2">
+                        <div class="contacts row g-1 align-items-center" v-for="(contact, index) in filteredContacts"
+                            :key="index" @click="setCurrentContact(index)">
+                            <div class="col-auto">
+                                <div class="avatar_face">
+                                    <img class="rounded-circle p-1" width="50" :src="'./starter-pack/img/avatar' + contact.avatar + '.jpg'" alt="">
+                                </div>
                             </div>
-                            <div class="avatar_access">
-                                <div class="avatar_name font_name">{{ contact.name }}</div>
-                                <div class="last_access text-secondary font_min">Ultimo messaggio inviato</div>
+                            <div class="col">
+                                <div class="avatar_access">
+                                    <div class="avatar_name font_name">{{ contact.name }}</div>
+                                    <div class="last_access text-secondary font_min">Ultimo messaggio inviato</div>
+                                </div>
                             </div>
-                            <div class="time_access">
-                                <span class="time font_min">12:00</span>
+                            <div class="col-auto">
+                                <div class="time_access">
+                                    <span class="font_min">12:00</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -75,7 +80,8 @@
                     <div class="chat_header d-flex justify-content-between">
                         <div class="avatar d-flex align-items-center">
                             <div class="avatar_face">
-                                <img class="rounded-circle px-1 py-1" width="50" :src="'./starter-pack/img/avatar' + contacts[currentContactIndex].avatar + '.jpg'" alt="">
+                                <img class="rounded-circle px-1 py-1" width="50"
+                                    :src="'./starter-pack/img/avatar' + contacts[currentContactIndex].avatar + '.jpg'" alt="">
                             </div>
                             <div class="avatar_access">
                                 <div class="avatar_name font_name">{{ contacts[currentContactIndex].name }}</div>
@@ -85,24 +91,26 @@
                         <div class="sidebar_icons d-flex align-items-center gap-2 px-3">
                             <a href="#"><i class="fa-solid fa-magnifying-glass text-muted"></i></a>
                             <a href="#"><i class="fa-solid fa-paperclip text-muted"></i></a>
-                            <a href="#"><i class="fa-solid fa-ellipsis-vertical text-muted"></i></i></a>
+                            <a href="#"><i class="fa-solid fa-ellipsis-vertical text-muted"></i></a>
                         </div>
                     </div>
                     <div class="chat_main p-3">
                         <div v-for="(message, index) in contacts[currentContactIndex].messages" :key="index">
-                            <div class="d-flex" :class="{ 'justify-content-end': message.status === 'sent', 'justify-content-start': message.status === 'received' }">
-                                <div class="message-content rounded-2 py-2 px-3 m-2" :style="{ 'background-color': message.status === 'sent' ? 'var(--chat_sent)' : 'white' }">{{ message.message }}</div>
+                            <div class="d-flex"
+                                :class="{ 'justify-content-end': message.status === 'sent', 'justify-content-start': message.status === 'received' }">
+                                <div class="message-content rounded-2 py-2 px-3 m-2"
+                                    :style="{ 'background-color': message.status === 'sent' ? 'var(--chat_sent)' : 'white' }">{{ message.message }}</div>
                             </div>
                         </div>
-                    </div>                                                                
-                    
+                    </div>
+
                     <div class="chat_input d-flex justify-content-between align-items-center">
                         <a class="text-muted" href="#"><i class="fa-regular fa-face-smile px-4"></i></a>
-                        <input class="input_message p-2 my-2 border-0" type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="addMessage">
+                        <input class="input_message p-2 my-2 border-0" type="text" placeholder="Scrivi un messaggio"
+                            v-model="newMessageText" @keyup.enter="addMessage">
                         <a class="text-muted" href="#"><i class="fa-solid fa-microphone px-4"></i></a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -110,4 +118,5 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="/js/script.js"></script>
 </body>
+
 </html>

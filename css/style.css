@@ -5,7 +5,6 @@
 }
 
 /* Color Palette */
-
 :root {
     --wallpaper_high--: #009688;
     --notifications--: #8EDAFC;
@@ -31,7 +30,7 @@ body {
 }
 
 .wrapper {
-    height: 90vh;
+    height: 95vh;
     z-index: 34;
 }
 
@@ -68,6 +67,7 @@ body {
     background-color: white;
     height: 100%;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .contacts:hover {
@@ -97,6 +97,7 @@ body {
     background-image: url(/starter-pack/img/mine.jpg);
     height: 100%;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .chat_main .sent {
