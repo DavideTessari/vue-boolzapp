@@ -99,6 +99,10 @@ body {
     scrollbar-width: none;
 }
 
+.chat_main .message-content {
+    cursor: pointer;
+}
+
 .chat_main .sent {
     background-color: var(--chat_sent);
 }
