@@ -22,13 +22,22 @@ body {
     height: 100vh;
 }
 
+.bg-head-app{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #009688
+}
+
 .wrapper {
-    height: 680px;
+    height: 90vh;
+    z-index: 34;
 }
 
 .sidebar {
     height: 100%;
-    width: 500px;
+    width: 450px;
 }
 
 .sidebar_header {
@@ -41,30 +50,29 @@ body {
     height: 70px;
 }
 
-.sidebar_search {
-    background-color: var(--primary--);
-    height: 50px;
+.bell_icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
-.sidebar_search .search {
-    height: 25px;
+.sidebar_search {
+    background-color: var(--primary--);
+}
+
+.sidebar_search input {
+    width: 80%;
 }
 
 .sidebar_contacts {
     background-color: white;
     height: 100%;
     overflow-y: scroll;
-    scrollbar-width: none;
 }
 
-.sidebar_contacts .time_access {
-    position: relative;
-}
-
-.sidebar_contacts .time {
-    position: absolute;
-    bottom: 5px;
-    left: 110px;
+.contacts:hover {
+    background-color: var(--primary--);
+    cursor: pointer;
 }
 
 .chat {
@@ -93,12 +101,10 @@ body {
 
 .chat_main .sent {
     background-color: var(--chat_sent);
-    width: 350px;
 }
 
 .chat_main .received {
     background-color: white;
-    width: 350px;
 }
 
 .chat_input {
